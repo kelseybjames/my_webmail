@@ -1,12 +1,12 @@
 
-MailerApp.factory('authService',['$window','env', function($window,env){
+MailerApp.factory('authService',['$window','env', 'emailService', function($window,env,emailService){
 
   var obj = {};
 
   obj.handleClientLoad = function() {
-    console.log(gapi);
-    console.log(gapi.client);
+    console.log(env.apiKey);
     gapi.client.setApiKey(env.apiKey);
+    $window.setTimeout(obj.checkAuth, 1);
   }
 
   obj.checkAuth = function() {
@@ -30,7 +30,7 @@ MailerApp.factory('authService',['$window','env', function($window,env){
 
   obj.handleAuthResult =  function(authResult) {
     if(authResult && !authResult.error) {
-      
+      emailService.loadGmailApi();
     } else {
       console.log('auth went wrong, help!');
     }

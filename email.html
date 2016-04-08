@@ -47,9 +47,9 @@
         </thead>
         <tbody>
           <tr ng-repeat='message in messages'>
-            <td>{{ message.from }}</td>
+            <td>{{ message.header }}</td>
             <td ng-click='openEmailShowModal(message)'>{{ message.subject }}</td>
-            <td>{{ message.sent }}</td>
+            <td>{{ message.daates }}</td>
           </tr>
         </tbody>
       </table>

@@ -1,4 +1,4 @@
-MailerApp.controller('EmailCtrl', ['$scope', '$window', 'authService', function($scope, $window, authService) {
+MailerApp.controller('EmailCtrl', ['$scope', '$window', 'emailService', function($scope, $window, emailService) {
 
   $scope.emails = gapi.client.gmail.users.messages.list({
     'userId': 'me',

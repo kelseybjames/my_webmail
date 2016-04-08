@@ -3,12 +3,12 @@ MailerApp.factory('authService', ['$window', 'env',function($window,env){
   var obj = {};
  
   obj.handleClientLoad = function() {
-    gapi.client.setApiKey(env.apiKey);
+    $window.gapi.client.setApiKey(env.apiKey);
     $window.setTimeout(obj.checkAuth, 1);
   }
 
   obj.checkAuth = function() {
-    gapi.auth.authorize({
+    $window.gapi.auth.authorize({
       client_id: env.clientId,
       scope: env.scopes,
       immediate: true
@@ -16,7 +16,7 @@ MailerApp.factory('authService', ['$window', 'env',function($window,env){
   }
 
   obj.handleAuthClick =  function() {
-    gapi.auth.authorize({
+    $window.gapi.auth.authorize({
       client_id: env.clientId,
       scope: env.scopes,
       immediate: false

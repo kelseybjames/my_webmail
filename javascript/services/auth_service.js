@@ -11,6 +11,7 @@ MailerApp.factory('authService',['$window','env', function($window,env){
   }
 
   obj.checkAuth = function() {
+    console.log(env);
     $window.gapi.auth.authorize({
       client_id: env.clientId,
       scope: env.scopes,

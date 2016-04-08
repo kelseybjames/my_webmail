@@ -45,5 +45,11 @@
             <th>Date/Time</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          <tr ng-repeat='message in messages'>
+            <td>{{ message.from }}</td>
+            <td ng-click='openEmailShowModal(message)'>{{ message.subject }}</td>
+            <td>{{ message.sent }}</td>
+          </tr>
+        </tbody>
       </table>

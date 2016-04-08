@@ -1,8 +1,14 @@
-MailerApp.controller('EmailCtrl', ['$scope', '$window', 'emailService', function($scope, $window, emailService) {
+MailerApp.controller('EmailCtrl', ['$scope', '$window', 'emailService', 'uibModal', function($scope, $window, emailService, uibModal) {
 
-  $scope.emails = gapi.client.gmail.users.messages.list({
-    'userId': 'me',
-    'labelIds': 'INBOX',
-    'maxResults': 10
-  });
+  $scope.messages = emailService.getMessages();
+
+  $scope.openEmailShowModal = function(message) {
+    $scope.message = message;
+    var emailShowModal = $uibModal.open({
+      animation: true,
+      templateUrl: 'email_show_modal.html',
+      controller: 'EmailCtrl',
+      scope: $scope
+    })
+  };
 }])

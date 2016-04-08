@@ -5,9 +5,10 @@ MailerApp.constant('env', {
   apiKey: 'AIzaSyD3-p9DiZtNjptHJrjiPNt78ozi1aoNVvY',
   scopes:  'https://www.googleapis.com/auth/gmail.readonly '+
             'https://www.googleapis.com/auth/gmail.send'
-      });
-      
-MailerApp.config('$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+});
+
+MailerApp.config(function($stateProvider, $urlRouterProvider) {
+
   $stateProvider
 
   .state("mailerapp", {

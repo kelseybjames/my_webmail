@@ -4,7 +4,6 @@ MailerApp.factory('authService',['$window','env', 'emailService', function($wind
   var obj = {};
 
   obj.handleClientLoad = function() {
-    console.log(env.apiKey);
     gapi.client.setApiKey(env.apiKey);
     $window.setTimeout(obj.checkAuth, 1);
   }

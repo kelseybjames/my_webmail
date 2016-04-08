@@ -4,7 +4,8 @@ MailerApp.factory('emailService',['$window','env', function($window,env){
   var obj = {};
   var msgs = [];
 
-  var getMsgs = function(){
+  obj.getMsgs = function(){
+    console.log('getting messages');
     return msgs;
   };
 
@@ -16,7 +17,7 @@ MailerApp.factory('emailService',['$window','env', function($window,env){
     var request = gapi.client.gmail.users.messages.list({
       'userId': 'me',
       'labelIds': 'INBOX',
-      'maxResults': 1
+      'maxResults': 10
     })
   
     request.execute(function(response) {
@@ -40,6 +41,7 @@ MailerApp.factory('emailService',['$window','env', function($window,env){
     currMsg.dates = obj.getHeader(message.payload.headers, 'Date');
 
     msgs.push(currMsg);
+    console.log(msgs);
   }
 
   obj.getHeader = function(headers, index) {

@@ -6,7 +6,7 @@ MailerApp.factory('authService',['$window','env',function($window,env){
   obj.handleClientLoad = function() {
     console.log(gapi);
     console.log(gapi.client);
-    gapi.client.setApiKey(apiKey);
+    gapi.client.setApiKey(env.apiKey);
     console.log("Here");
   }
 

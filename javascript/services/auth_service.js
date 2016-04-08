@@ -1,13 +1,12 @@
 
-MailerApp.factory('authService',['$window','env', function($window,env){
+MailerApp.factory('authService',['$window','env', 'emailService', function($window,env,emailService){
 
   var obj = {};
 
   obj.handleClientLoad = function() {
-    console.log(gapi);
-    console.log(gapi.client);
+    console.log(env.apiKey);
     gapi.client.setApiKey(env.apiKey);
-    console.log("Here");
+    $window.setTimeout(obj.checkAuth, 1);
   }
 
   obj.checkAuth = function() {
@@ -16,7 +15,6 @@ MailerApp.factory('authService',['$window','env', function($window,env){
       scope: env.scopes,
       immediate: true
     }, obj.handleAuthResult);
-    console.log('checked auth');
   }
 
   obj.handleAuthClick =  function() {
@@ -31,8 +29,7 @@ MailerApp.factory('authService',['$window','env', function($window,env){
 
   obj.handleAuthResult =  function(authResult) {
     if(authResult && !authResult.error) {
-      getEmailService.loadGmailApi();
-      console.log(getEmailService.loadGmailApi());
+      emailService.loadGmailApi();
     }
   }
 

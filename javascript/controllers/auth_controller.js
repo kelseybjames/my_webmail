@@ -3,9 +3,7 @@ MailerApp.controller('AuthCtrl', ['$scope', '$window', 'authService', function($
   //setTimeout(authService.checkAuth, 1);
   $scope.checkAuth = function() {
     authService.handleClientLoad();  
-    authService.checkAuth();
   }
-
   // $scope.handleAuthClick = authService.handleAuthClick();
   // $scope.handleAuthResult = authService.handleAuthResult();
 }])

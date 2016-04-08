@@ -22,11 +22,11 @@ MailerApp.config(function($stateProvider, $urlRouterProvider) {
     templateUrl: "authorize.html",
     controller: 'AuthCtrl'
   })
-  // .state('mailerapp.emails', {
-  //   url: 'emails',
-  //   templateUrl: 'index.html',
-  //   controller: 'EmailCtrl'
-  // })
+  .state('emails', {
+    url: '/emails',
+    templateUrl: 'email.html',
+    controller: 'EmailCtrl'
+  })
 
   $urlRouterProvider.otherwise('/');
 })

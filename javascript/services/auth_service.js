@@ -1,4 +1,4 @@
-mailerApp.factory('authService', 'window', 'env',[function(window,env){
+MailerApp.factory('authService', 'window', 'env',[function(window,env){
 
   var obj = {};
  
@@ -39,4 +39,4 @@ mailerApp.factory('authService', 'window', 'env',[function(window,env){
   }
 
   return obj;
-}  
+}]) 

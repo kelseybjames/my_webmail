@@ -10,6 +10,7 @@ MailerApp.factory('authService',['$window','env', 'emailService', function($wind
   }
 
   obj.checkAuth = function() {
+    console.log(env);
     $window.gapi.auth.authorize({
       client_id: env.clientId,
       scope: env.scopes,
@@ -28,8 +29,13 @@ MailerApp.factory('authService',['$window','env', 'emailService', function($wind
   }
 
   obj.handleAuthResult =  function(authResult) {
+    console.log('auth result');
+    console.log(authResult);
     if(authResult && !authResult.error) {
       emailService.loadGmailApi();
+      console.log(getEmailService.loadGmailApi());
+    } else {
+      console.log('auth went wrong, help!');
     }
   }
 

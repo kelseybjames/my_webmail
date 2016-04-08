@@ -1,12 +1,14 @@
 var MailerApp = angular.module('MailerApp', ['ui.router', 'ui.bootstrap']);
 
 MailerApp.config(function($stateProvider, $urlRouterProvider) {
+  
+  console.log("In heere");
 
   $stateProvider
 
-  .state("mailerapp", {
+  .state("index", {
     url: "/",
-    template: "authorize.html",
+    templateUrl: "authorize.html",
     controller: 'AuthCtrl'
   })
   // .state('mailerapp.emails', {

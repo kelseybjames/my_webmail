@@ -30,9 +30,13 @@ MailerApp.factory('authService',['$window','env', function($window,env){
   }
 
   obj.handleAuthResult =  function(authResult) {
+    console.log('auth result');
+    console.log(authResult);
     if(authResult && !authResult.error) {
       getEmailService.loadGmailApi();
       console.log(getEmailService.loadGmailApi());
+    } else {
+      console.log('auth went wrong, help!');
     }
   }
 

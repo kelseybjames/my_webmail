@@ -1,4 +1,4 @@
-MailerApp.controller('EmailCtrl', ['$scope', '$window', 'emailService', '$uibModal', function($scope, $window, emailService, $uibModal) {
+MailerApp.controller('EmailCtrl', ['$scope', '$window', 'emailService', 'sendService', '$uibModal', function($scope, $window, emailService, sendService, $uibModal) {
 
   $scope.messages = emailService.getMsgs();
 
@@ -17,11 +17,17 @@ MailerApp.controller('EmailCtrl', ['$scope', '$window', 'emailService', '$uibMod
   };
 
   $scope.openNewEmailModal = function() {
-    var emailShowModal = $uibModal.open({
+    $scope.newmessage = {};
+    console.log('opening new email modal');
+    var newEmailModal = $uibModal.open({
       animation: true,
       templateUrl: 'new_email_modal.html',
       controller: 'EmailCtrl',
       scope: $scope
     })
+  };
+
+  $scope.sendEmail = function(to, subject, body) {
+    sendService.sendEmail(to, subject, body);
   };
 }])

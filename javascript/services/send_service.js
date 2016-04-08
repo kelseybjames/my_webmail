@@ -9,7 +9,7 @@ MailerApp.factory('sendService',['$window','env', function($window,env){
         'Subject': subject
       },
       body,
-      composeTidy
+      obj.composeTidy
     );
     return false;
   }

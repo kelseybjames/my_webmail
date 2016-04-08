@@ -16,5 +16,12 @@ MailerApp.controller('EmailCtrl', ['$scope', '$window', 'emailService', '$uibMod
     })
   };
 
-  console.log('got to email controller');
+  $scope.openNewEmailModal = function() {
+    var emailShowModal = $uibModal.open({
+      animation: true,
+      templateUrl: 'new_email_modal.html',
+      controller: 'EmailCtrl',
+      scope: $scope
+    })
+  };
 }])

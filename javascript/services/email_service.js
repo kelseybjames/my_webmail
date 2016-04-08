@@ -16,7 +16,7 @@ MailerApp.factory('emailService',['$window','env', function($window,env){
     var request = gapi.client.gmail.users.messages.list({
       'userId': 'me',
       'labelIds': 'INBOX',
-      'maxResults': 100
+      'maxResults': 1
     })
   
     request.execute(function(response) {
@@ -32,9 +32,9 @@ MailerApp.factory('emailService',['$window','env', function($window,env){
   }
 
   obj.appendMessageRow = function(message) { 
-    var currMsg;
+    var currMsg = {};
 
-    currMsg.header = obj.getHeader(message.payload.headers, 'From');
+    currMsg.header = null || obj.getHeader(message.payload.headers, 'From');
     currMsg.id = message.id;
     currMsg.subject = obj.getHeader(message.payload.headers, 'Subject');
     currMsg.dates = obj.getHeader(message.payload.headers, 'Date');
@@ -44,11 +44,17 @@ MailerApp.factory('emailService',['$window','env', function($window,env){
 
   obj.getHeader = function(headers, index) {
       var header = '';
-      headers.forEach(function(item){
-        if(item.name === index){
+      len = headers.length;
+
+      for (var i = 0; i < len; i++) {
+        item = headers[i];
+        if (item.name == index){
+
+          console.log("Found " + index);
           header = item.value;
+          i = len;
         }
-      });
+      };
       return header;
   }
   

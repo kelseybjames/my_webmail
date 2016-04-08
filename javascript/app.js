@@ -7,7 +7,9 @@ MailerApp.constant('env', {
             'https://www.googleapis.com/auth/gmail.send'
       });
       
+
 MailerApp.config(function($stateProvider, $urlRouterProvider) {
+
   $stateProvider
 
   .state("mailerapp", {

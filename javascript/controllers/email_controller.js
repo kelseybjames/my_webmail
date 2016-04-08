@@ -1,8 +1,8 @@
-MailerApp.contropller('AuthCtrl', '$scope', '$window', 'env', 'authService', function($scope, $window, env, authService) {
+MailerApp.controller('EmailCtrl', '$scope', '$window', 'env', function($scope, $window, env) {
 
-  // $scope.emails = gapi.client.gmail.users.messages.list({
-  //   'userId': 'me',
-  //   'labelIds': 'INBOX',
-  //   'maxResults': 10
-  // });
+  $scope.emails = gapi.client.gmail.users.messages.list({
+    'userId': 'me',
+    'labelIds': 'INBOX',
+    'maxResults': 10
+  });
 })

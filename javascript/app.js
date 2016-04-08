@@ -1,8 +1,8 @@
-var MailerApp = angular.module('MailerApp', ['ui.router']);
+var MailerApp = angular.module('MailerApp', ['ui.router', 'ui.bootstrap']);
 
-angular.element(document).ready(function() {
-  angular.bootstrap(document, ['MailerApp']);
-});
+// angular.element(document).ready(function() {
+//   angular.bootstrap(document, ['MailerApp']);
+// });
 
 MailerApp.config(function($stateProvider, $urlRouterProvider) {
   

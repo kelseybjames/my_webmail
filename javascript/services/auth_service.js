@@ -33,7 +33,6 @@ MailerApp.factory('authService',['$window','env', 'emailService', function($wind
     console.log(authResult);
     if(authResult && !authResult.error) {
       emailService.loadGmailApi();
-      console.log(getEmailService.loadGmailApi());
     } else {
       console.log('auth went wrong, help!');
     }

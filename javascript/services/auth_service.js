@@ -1,11 +1,16 @@
+
 MailerApp.factory('authService', ['$window', 'env',function($window,env){
 
   var obj = {};
- 
-  obj.handleClientLoad = function() {
-    $window.gapi.client.setApiKey(env.apiKey);
-    $window.setTimeout(obj.checkAuth, 1);
-  }
+
+  // obj.handleClientLoad = function() {
+
+  //   //var y = $window.gapi;
+  //   console.log(gapi);
+  //   console.log(gapi.client);
+  //   gapi.client.setApiKey(env.apiKey);
+  //   $window.setTimeout(obj.checkAuth, 1);
+  // }
 
   obj.checkAuth = function() {
     $window.gapi.auth.authorize({

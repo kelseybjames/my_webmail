@@ -1,4 +1,4 @@
-var MailerApp = angular.module('MailerApp', ['ui.router', 'ui.bootstrap']);
+var MailerApp = angular.module('MailerApp', ['ui.router']);
 
 MailerApp.constant('env', {
  clientId: '586929170645-1882ven187ul03hisl6jhb4isrstmt83.apps.googleusercontent.com',
@@ -7,7 +7,7 @@ MailerApp.constant('env', {
             'https://www.googleapis.com/auth/gmail.send'
       });
       
-MailerApp.config('$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+MailerApp.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
   .state("mailerapp", {

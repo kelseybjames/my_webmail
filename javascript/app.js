@@ -1,4 +1,4 @@
-var MailerApp = angular.module('MailerApp', ['ui.router']);
+var MailerApp = angular.module('MailerApp', ['ui.router', 'ui.bootstrap']);
 
 MailerApp.constant('env', {
  clientId: '586929170645-1882ven187ul03hisl6jhb4isrstmt83.apps.googleusercontent.com',
@@ -15,11 +15,11 @@ MailerApp.config('$stateProvider', '$urlRouterProvider', function($stateProvider
     template: "authorize.html",
     controller: 'AuthCtrl'
   })
-  .state('mailerapp.emails', {
-    url: 'emails',
-    templateUrl: 'index.html',
-    controller: 'EmailCtrl'
-  })
+  // .state('mailerapp.emails', {
+  //   url: 'emails',
+  //   templateUrl: 'index.html',
+  //   controller: 'EmailCtrl'
+  // })
 
   $urlRouterProvider.otherwise('/');
 })

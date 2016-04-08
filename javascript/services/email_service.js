@@ -39,7 +39,7 @@ MailerApp.factory('emailService',['$window','env', function($window,env){
     currMsg.id = message.id;
     currMsg.subject = obj.getHeader(message.payload.headers, 'Subject');
     currMsg.dates = obj.getHeader(message.payload.headers, 'Date');
-    currMsg.body = obj.getBody(message);
+    currMsg.body = obj.getBody(message.payload);
 
     msgs.push(currMsg);
     console.log(msgs);
@@ -69,7 +69,7 @@ MailerApp.factory('emailService',['$window','env', function($window,env){
       }
       else
       {
-        encodedBody = getHTMLPart(message.parts);
+        encodedBody = obj.getHTMLPart(message.parts);
       }
       encodedBody = encodedBody.replace(/-/g, '+').replace(/_/g, '/').replace(/\s/g, '');
       return decodeURIComponent(escape(window.atob(encodedBody)));
@@ -88,7 +88,7 @@ MailerApp.factory('emailService',['$window','env', function($window,env){
       }
       else
       {
-        return getHTMLPart(arr[x].parts);
+        return obj.getHTMLPart(arr[x].parts);
       }
     }
     return '';

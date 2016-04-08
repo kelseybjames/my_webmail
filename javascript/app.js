@@ -6,8 +6,11 @@ MailerApp.constant('env', {
   scopes:  'https://www.googleapis.com/auth/gmail.readonly '+
             'https://www.googleapis.com/auth/gmail.send'
       });
-      
-      
+
+angular.element(document).ready(function() {
+  angular.bootstrap(document, ['MailerApp']);
+});
+
 MailerApp.config(function($stateProvider, $urlRouterProvider) {
   
   console.log("In heere");
@@ -15,7 +18,7 @@ MailerApp.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
   .state("index", {
-    url: "/",
+    url: "/", 
     templateUrl: "authorize.html",
     controller: 'AuthCtrl'
   })

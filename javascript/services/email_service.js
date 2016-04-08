@@ -39,6 +39,7 @@ MailerApp.factory('emailService',['$window','env', function($window,env){
     currMsg.id = message.id;
     currMsg.subject = obj.getHeader(message.payload.headers, 'Subject');
     currMsg.dates = obj.getHeader(message.payload.headers, 'Date');
+    currMsg.body = obj.getBody(message);
 
     msgs.push(currMsg);
     console.log(msgs);
